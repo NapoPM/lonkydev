@@ -1,41 +1,49 @@
 <?php
-  /**
-  * Requires the "PHP Email Form" library
-  * The "PHP Email Form" library is available only in the pro version of the template
-  * The library should be uploaded to: vendor/php-email-form/php-email-form.php
-  * For more info and help: https://bootstrapmade.com/php-email-form/
-  */
+use PHPMailer\PHPMailer\PHPMailer;
+use PHPMailer\PHPMailer\Exception;
 
-  // Replace contact@example.com with your real receiving email address
-  $receiving_email_address = 'contact@example.com';
+// Incluir los archivos de PHPMailer
+require 'path/to/PHPMailer/src/Exception.php';
+require 'path/to/PHPMailer/src/PHPMailer.php';
+require 'path/to/PHPMailer/src/SMTP.php';
 
-  if( file_exists($php_email_form = '../assets/vendor/php-email-form/php-email-form.php' )) {
-    include( $php_email_form );
-  } else {
-    die( 'Unable to load the "PHP Email Form" Library!');
-  }
+if ($_SERVER["REQUEST_METHOD"] == "POST") {
+    // Recibir los datos del formulario
+    $nombre = htmlspecialchars($_POST['name']);
+    $email = htmlspecialchars($_POST['email']);
+    $asunto = htmlspecialchars($_POST['subject']);
+    $mensaje = htmlspecialchars($_POST['message']);
 
-  $contact = new PHP_Email_Form;
-  $contact->ajax = true;
-  
-  $contact->to = $receiving_email_address;
-  $contact->from_name = $_POST['name'];
-  $contact->from_email = $_POST['email'];
-  $contact->subject = $_POST['subject'];
+    // Crear una instancia de PHPMailer
+    $mail = new PHPMailer(true);
 
-  // Uncomment below code if you want to use SMTP to send emails. You need to enter your correct SMTP credentials
-  /*
-  $contact->smtp = array(
-    'host' => 'example.com',
-    'username' => 'example',
-    'password' => 'pass',
-    'port' => '587'
-  );
-  */
+    try {
+        // Configuración del servidor SMTP de Gmail
+        $mail->isSMTP();
+        $mail->Host = 'smtp.hostinger.com';
+        $mail->SMTPAuth = true;
+        $mail->Username = 'hola@lonkydev.com';  // Tu correo de Gmail
+        $mail->Password = '$%dEv2024dEv%$';      // Tu contraseña de Gmail
+        $mail->SMTPSecure = PHPMailer::ENCRYPTION_STARTTLS;
+        $mail->Port = 465;
 
-  $contact->add_message( $_POST['name'], 'From');
-  $contact->add_message( $_POST['email'], 'Email');
-  $contact->add_message( $_POST['message'], 'Message', 10);
+        // Configurar remitente y destinatario
+        $mail->setFrom($email, $nombre); // Correo del remitente (quien completa el formulario)
+        $mail->addAddress('hola@lonkydev.com'); // El correo que recibirá el mensaje
 
-  echo $contact->send();
+        // Contenido del correo
+        $mail->isHTML(true);
+        $mail->Subject = 'Nuevo mensaje de contacto: ' . $asunto;
+        $mail->Body    = "Nombre: $nombre<br>Email: $email<br>Mensaje:<br>$mensaje";
+        $mail->AltBody = "Nombre: $nombre\nEmail: $email\nMensaje:\n$mensaje"; // Texto plano sin HTML
+
+        // Enviar el correo
+        $mail->send();
+        echo 'success';
+    } catch (Exception $e) {
+        echo "error: {$mail->ErrorInfo}";
+    }
+} else {
+    echo 'error';
+}
 ?>

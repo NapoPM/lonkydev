@@ -26,6 +26,7 @@
   --surface-color: #ffffff; /* The surface color is used as a background of boxed elements within sections, such as cards, icon boxes, or other elements that require a visual separation from the global background. */
   --contrast-color: #ffffff; /* Contrast color for text, ensuring readability against backgrounds of accent, heading, or default colors. */
   --secundary-color: #9877dc;
+  --title-secundary-color: #8c52ff;
 }
 
 /* Nav Menu Colors - The following color variables are used specifically for the navigation menu. They are separate from the global colors to allow for more customization options */
@@ -167,6 +168,12 @@ h6 {
   margin: 0;
   font-weight: 700;
   color: var(--heading-color);
+}
+.header .logo h1 span{
+  font-size: 30px;
+  margin: 0;
+  font-weight: 700;
+  color: var(--title-secundary-color);
 }
 
 .scrolled .header {
@@ -434,6 +441,7 @@ h6 {
   position: relative;
   padding: 0;
   margin: 0 0 15px 0;
+  color: var(--heading-color);
 }
 
 .footer p {
@@ -476,6 +484,16 @@ h6 {
 .footer .credits {
   font-size: 13px;
   padding-top: 5px;
+}
+/* Estilo para LonkyDev */
+.sitename {
+  font-size: 36px; /* Mantiene el tamaño definido */
+  font-weight: 700;
+  color: var(--heading-color);
+}
+
+.sitename span {
+  color: #8c52ff; /* Color personalizado para el span */
 }
 
 /*--------------------------------------------------------------
@@ -555,6 +573,32 @@ h6 {
   visibility: visible;
   opacity: 1;
   bottom: 15px;
+}
+
+.whatsapp {
+  position: fixed;
+  right: 15px;
+  bottom: 80px; /* Ajuste para estar por encima del botón de la flecha */
+  z-index: 100000; /* Mayor que el z-index del .scroll-top */
+  background-color: #25D366; /* Verde WhatsApp */
+  width: 44px;
+  height: 44px;
+  border-radius: 50px;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  opacity: 1;
+  transition: all 0.4s;
+}
+
+.whatsapp i {
+  font-size: 24px;
+  color: white;
+}
+
+.whatsapp:hover {
+  background-color: color-mix(in srgb, #25D366, transparent 20%);
+  color: white;
 }
 
 /*--------------------------------------------------------------

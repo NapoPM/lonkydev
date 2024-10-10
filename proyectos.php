@@ -29,14 +29,6 @@
 
   <!-- Main CSS File -->
   <link href="assets/css/main.css" rel="stylesheet">
-
-  <!-- =======================================================
-  * Template Name: Selecao
-  * Template URL: https://bootstrapmade.com/selecao-bootstrap-template/
-  * Updated: Aug 07 2024 with Bootstrap v5.3.3
-  * Author: BootstrapMade.com
-  * License: https://bootstrapmade.com/license/
-  ======================================================== -->
 </head>
 
 <body class="blog-page">
@@ -44,7 +36,7 @@
   <header id="header" class="header d-flex align-items-center fixed-top">
     <div class="container-fluid container-xl position-relative d-flex align-items-center justify-content-between">
 
-      <a href="index.html" class="logo d-flex align-items-center">
+      <a href="index.php" class="logo d-flex align-items-center">
         <!-- Uncomment the line below if you also wish to use an image logo -->
         <!-- <img src="assets/img/logo.png" alt=""> -->
         <h1 class="sitename">&lt;LonkyDev/&gt;</h1>
@@ -52,12 +44,12 @@
 
       <nav id="navmenu" class="navmenu">
         <ul>
-          <li><a href="index.html" class="active">Inicio</a></li>
-          <li><a href="index.html#sobre-nosotros">Sobre Nosotros</a></li>
-          <li><a href="index.html#servicios">Servicios</a></li>
-          <li><a href="index.html#team">Nuestro Equipo</a></li>
-          <li><a href="index.html#desarrollos">Clientes</a></li>
-          <li><a href="index.html#contact">Contactanos</a></li>
+          <li><a href="index.php" class="active">Inicio</a></li>
+          <li><a href="index.php#sobre-nosotros">Sobre Nosotros</a></li>
+          <li><a href="index.php#servicios">Servicios</a></li>
+          <li><a href="index.php#team">Nuestro Equipo</a></li>
+          <li><a href="index.php#desarrollos">Clientes</a></li>
+          <li><a href="index.php#contact">Contactanos</a></li>
         </ul>
         <i class="mobile-nav-toggle d-xl-none bi bi-list"></i>
       </nav>
@@ -73,8 +65,8 @@
         <h1>Nuestros Desarrollos</h1>
         <nav class="breadcrumbs">
           <ol>
-            <li><a href="index.html">Inicio</a></li>
-            <li><a href="index.html#contact">Contactanos</a></li>
+            <li><a href="index.php">Inicio</a></li>
+            <li><a href="index.php#contact">Contactanos</a></li>
           </ol>
         </nav>
       </div>
